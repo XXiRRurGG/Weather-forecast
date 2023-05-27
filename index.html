@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <style>
+        #header
+        {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;    
+        }
+        #tabChoice
+        {
+            display: flex;
+            align-items: baseline;
+            
+            background-color: rgb(32, 27, 27);
+        }
+        button
+        {
+            background-color: rgb(32, 27, 27);
+            color: white;
+        }
+        #currentWeather
+        {
+            background-color: rgb(217, 230, 241);
+        }
+        #container1
+        {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px;
+            padding: 10px 20px;
+        }
+        #container2
+        {
+            display: flex;
+            justify-content: space-around;
+            vertical-align: top;
+            align-items: end;
+        }
+        #tempVal
+        {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        #weatherByHours,
+        #weatherByHours2
+        {
+            background-color:  rgb(217, 230, 241);
+        }
+        #container3,
+        #container6
+        {
+            display: flex;
+            padding: 0px 30px;
+        }
+        #nearbyCities
+        {
+            background-color: rgb(217, 230, 241);
+        }
+        #container4
+        {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: white;
+        }
+        .innerDiv
+        {
+            width: 50%;
+            box-sizing: border-box;
+            padding-right: 15px;
+            padding-left: 15px;
+            background-color: rgb(217, 230, 241);
+        }
+        #todayDiv
+        {
+            display: block;
+        }
+        #weekdayDiv
+        {
+            display: none;
+        }
+        .dayWeatherForecast
+        {
+            background-color: rgb(217, 230, 241);
+            flex-grow: 1;
+            margin-right: 15px;
+        }
+        .dayWeatherForecast:hover
+        {
+            background-color: rgb(182, 219, 248);
+        }
+        #container5
+        {
+            display: flex;
+            margin: 5px;
+        }
+        #errorDiv
+        {
+            display: none;
+            background-color: #f42a2a;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    
+    <header id="header">
+        <h1>Weather Forecast</h1>
+        <input type="text" id="city-input" name="city">
+    </header>
+
+    <div id="main">
+    <div id="tabChoice">
+        <button id="todayBtn">Today</button>
+        <button id="weekdayBtn">5-day forecast</button>
+    </div>
+
+    <div id="todayDiv">
+        <div id="currentWeather">
+            <div id="container1">
+                <h2>Current weather</h2>
+                <h3 id="currentDate">some date</h3>
+            </div>
+            <div id="container2">
+                <div>
+                    <img src="image.jpg" alt="Alternative text for image" id="weatherImg">
+                    <p id="weatherText">Current weather</p>
+                </div>
+
+                <div>
+                    <p id="tempVal">29C</p>
+                    <p id="tempFeelsLike">Feels like 30C</p>
+                </div>
+
+                <div>
+                    <p id="sunriseTime">Sunrise</p>
+                    <p id="sunsetTime">Sunset</p>
+                    <p id="durationTime">Duration</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="weatherByHours">
+            <h2 style="padding-left: 15px;padding-top: 15px;">Hourly</h2>
+            <div id="container3" style="display: flex; justify-content: space-between;">
+                <div style="display: flex; justify-content: space-between;flex-direction: column;">
+                    <p id="todayText">Today</p>
+                    <div>
+                        <p>Temp(C)</p>
+                        <p>RealFeel</p>
+                        <p>Wind(km/h)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="nearbyCities">
+            <h2>
+                Nearby places
+            </h2>
+            <div id="container4">
+                <div style="display: flex;justify-content: space-between;" class="innerDiv">
+                    <span>City</span>
+                    <div>
+                        <img alt="Alternative text for image" id="weatherImg">
+                        <p>Temp</p>
+                    </div>
+                </div>
+
+                <div style="display: flex;justify-content: space-between;" class="innerDiv">
+                    <span>City</span>
+                    <div>
+                        <img alt="Alternative text for image" id="weatherImg">
+                        <p>Temp</p>
+                    </div>
+                </div>
+
+                <div style="display: flex;justify-content: space-between;" class="innerDiv">
+                    <span>City</span>
+                    <div>
+                        <img alt="Alternative text for image" id="weatherImg">
+                        <p>Temp</p>
+                    </div>
+                </div>
+
+                <div style="display: flex;justify-content: space-between;" class="innerDiv">
+                    <span>City</span>
+                    <div>
+                        <img alt="Alternative text for image" id="weatherImg">
+                        <p>Temp</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="weekdayDiv">
+        <div id="container5">
+            <div class="dayWeatherForecast" id="1">
+                <h2>Tonight</h2>
+                <p>Date</p>
+                <img alt="Alternative text for image" id="weatherImg">
+                <p>Temp</p>
+                <p>Description</p>
+            </div>
+
+            <div class="dayWeatherForecast" id="2">
+                <h2>Tonight</h2>
+                <p>Date</p>
+                <img alt="Alternative text for image" id="weatherImg">
+                <p>Temp</p>
+                <p>Description</p>
+            </div>
+
+            <div class="dayWeatherForecast" id="3">
+                <h2>Tonight</h2>
+                <p>Date</p>
+                <img alt="Alternative text for image" id="weatherImg">
+                <p>Temp</p>
+                <p>Description</p>
+            </div>
+
+            <div class="dayWeatherForecast" id="4">
+                <h2>Tonight</h2>
+                <p>Date</p>
+                <img alt="Alternative text for image" id="weatherImg">
+                <p>Temp</p>
+                <p>Description</p>
+            </div>
+
+            <div class="dayWeatherForecast" id="5">
+                <h2>Tonight</h2>
+                <p>Date</p>
+                <img alt="Alternative text for image" id="weatherImg">
+                <p>Temp</p>
+                <p>Description</p>
+            </div>
+        </div>
+
+        <div id="weatherByHours2">
+            <h2 style="padding-left: 15px;padding-top: 15px;">Hourly</h2>
+            <div id="container6" style="display: flex; justify-content: space-between;">
+                <div style="display: flex; justify-content: space-between;flex-direction: column;">
+                    <p>Today</p>
+                    <div>
+                        <p>Temp(C)</p>
+                        <p>RealFeel</p>
+                        <p>Wind(km/h)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="errorDiv">
+        <h1>
+            This city does not exist!
+        </h1>
+    </div>
+</body>
+</html>
